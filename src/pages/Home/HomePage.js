@@ -67,7 +67,10 @@ export default function HomePage() {
             </ContainerSaldo>
           </>
         ) : (
-          <h1>Não há registros de entrada ou saída</h1>
+          <h1>
+            Não há registros de
+            <br /> entrada ou saída
+          </h1>
         )}
       </LogBox>
       <ContainerBtns>

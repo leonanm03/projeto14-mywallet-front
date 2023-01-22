@@ -67,6 +67,11 @@ export const LogBox = styled.div`
       display: none;
     }
   }
+  h1 {
+    margin: auto;
+    font-size: 20px;
+    font-weight: 400;
+  }
 `;
 
 export const ContainerSaldo = styled.div`
