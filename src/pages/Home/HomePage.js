@@ -8,15 +8,17 @@ import {
   Change,
   ContainerSaldo,
 } from "./StyleHome";
-import Logo from "../../assets/VectorOut.svg";
+import Exit from "../../assets/VectorOut.svg";
 import Plus from "../../assets/plus.svg";
 import Minus from "../../assets/minus.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import { useContext, useEffect, useState } from "react";
 import { apiWallet } from "../../services/apiWallet";
+import apiAuth from "../../services/apiAuth";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const [userWallet, setUserWallet] = useState({
     name: "",
@@ -36,6 +38,13 @@ export default function HomePage() {
       });
   }
 
+  function exitApi() {
+    apiAuth.singOut(user.token).then((res) => {
+      console.log("Resposta do Servidor:", res.data);
+      navigate("/");
+    });
+  }
+
   useEffect(getWalletList, [user.token]);
   console.log(userWallet.changes);
 
@@ -43,8 +52,8 @@ export default function HomePage() {
     <Container>
       <ContainerHeader>
         <GreetingMsg>Olá, {user.name}</GreetingMsg>
-        <Link to="/">
-          <img src={Logo} alt="Logo MyWallet" />
+        <Link onClick={exitApi}>
+          <img src={Exit} alt="exit icon" />
         </Link>
       </ContainerHeader>
       <LogBox>
