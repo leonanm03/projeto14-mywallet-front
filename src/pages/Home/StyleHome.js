@@ -86,7 +86,7 @@ export const ContainerSaldo = styled.div`
 
     text-align: right;
 
-    color: ${(props) => (props.userBalance > 0 ? "#03ac00" : "#c70000")};
+    color: ${(props) => (props.value > 0 ? "#03ac00" : "#c70000")};
   }
 `;
 
@@ -116,7 +116,7 @@ export const Change = styled.div`
   align-items: center;
 
   .inOut {
-    color: ${(props) => (props.type === "income" ? "#03ac00" : "#c70000")};
+    color: ${(props) => (props.type === "in" ? "#03ac00" : "#c70000")};
     font-family: "Raleway";
     font-style: normal;
     font-weight: 400;

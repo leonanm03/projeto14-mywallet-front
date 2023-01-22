@@ -39,8 +39,6 @@ export default function HomePage() {
   useEffect(getWalletList, [user.token]);
   console.log(userWallet.changes);
 
-  let userBalance = userWallet.balance;
-
   return (
     <Container>
       <ContainerHeader>
@@ -53,7 +51,7 @@ export default function HomePage() {
         {userWallet.changes.length > 0 ? (
           <>
             {userWallet.changes.map((change, index) => (
-              <Change key={index} value={change.value} type={change.type}>
+              <Change key={index} type={change.type}>
                 <span className="myclass">
                   {change.date}
                   <span className="description"> {change.description} </span>
@@ -62,9 +60,9 @@ export default function HomePage() {
               </Change>
             ))}
 
-            <ContainerSaldo userBalance={userBalance}>
-              <span className="saldoTxt">Saldo</span>
-              <span className="saldoVal">{userBalance}</span>
+            <ContainerSaldo value={userWallet.balance}>
+              <span className="saldoTxt">SALDO</span>
+              <span className="saldoVal">{userWallet.balance}</span>
             </ContainerSaldo>
           </>
         ) : (

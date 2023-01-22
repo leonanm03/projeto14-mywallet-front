@@ -11,10 +11,15 @@ function createConfig(token) {
 }
 
 function getWallet(token) {
-  console.log("entrei no getWallet");
   return axios.get(`${BASE_URL}/wallet`, createConfig(token));
 }
 
+function addChangeWallet(token, body) {
+  return axios.post(`${BASE_URL}/wallet`, body, createConfig(token));
+}
+
+
 export const apiWallet = {
   getWallet,
+  addChangeWallet,
 };
