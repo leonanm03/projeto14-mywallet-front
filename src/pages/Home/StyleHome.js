@@ -58,6 +58,15 @@ export const LogBox = styled.div`
   padding-top: 23px;
   color: #868686;
   position: relative;
+  padding-left: 10px;
+  ul {
+    height: calc(100% - 40px);
+    width: 100%;
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 export const ContainerSaldo = styled.div`

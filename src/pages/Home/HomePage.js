@@ -50,16 +50,17 @@ export default function HomePage() {
       <LogBox>
         {userWallet.changes.length > 0 ? (
           <>
-            {userWallet.changes.map((change, index) => (
-              <Change key={index} type={change.type}>
-                <span className="myclass">
-                  {change.date}
-                  <span className="description"> {change.description} </span>
-                </span>
-                <span className="inOut"> {change.value} </span>
-              </Change>
-            ))}
-
+            <ul>
+              {userWallet.changes.map((change, index) => (
+                <Change key={index} type={change.type}>
+                  <span className="myclass">
+                    {change.date}
+                    <span className="description"> {change.description} </span>
+                  </span>
+                  <span className="inOut"> {change.value} </span>
+                </Change>
+              ))}
+            </ul>
             <ContainerSaldo value={userWallet.balance}>
               <span className="saldoTxt">SALDO</span>
               <span className="saldoVal">{userWallet.balance}</span>
